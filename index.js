@@ -30,7 +30,7 @@ app.get("/api/:date?", (req, res) => {
     let date2 = new Date(req.params.date).getTime();
     res.json({unix: date2, utc: date1.toUTCString()})
   } else {
-    let unix = req.params.date;
+    let unix = parseInt(req.params.date);
     let unixDate = new Date(parseInt(unix)).toUTCString();
     res.json({ unix: unix, utf: unixDate})
   }
